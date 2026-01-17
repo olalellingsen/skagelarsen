@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-export const quicksand = Quicksand({
+const font = Quicksand({
   subsets: ["latin"],
 });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${quicksand.className} antialiased flex flex-col min-h-screen`}
+        className={`${font.className} antialiased flex flex-col min-h-screen`}
       >
         <Navbar />
         <main className="flex-grow py-10">{children}</main>
