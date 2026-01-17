@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const robotoCondensed = Roboto_Condensed({
-  variable: "--font-roboto-condensed",
-  subsets: ["latin"],
-});
-
-const robotoMono = Roboto_Condensed({
-  variable: "--font-roboto-mono",
+export const quicksand = Quicksand({
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Ola Lømo Ellingsen",
+  title: "Skage Larsen",
 };
 
 export default function RootLayout({
@@ -26,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${robotoCondensed.variable} ${robotoMono.variable} font-light antialiased flex flex-col min-h-screen`}
+        className={`${quicksand.className} antialiased flex flex-col min-h-screen`}
       >
         <Navbar />
         <main className="flex-grow py-10">{children}</main>

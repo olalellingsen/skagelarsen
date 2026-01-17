@@ -12,7 +12,7 @@ export default function InstagramComponent() {
   return (
     <InstagramEmbed
       className="w-full "
-      url="https://www.instagram.com/olalellingsen/"
+      url="https://www.instagram.com/skaggi_lrcn/"
     />
   );
 }

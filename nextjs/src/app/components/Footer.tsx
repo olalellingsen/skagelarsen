@@ -87,7 +87,7 @@ export default async function Footer() {
       </div>
 
       <p className="text-gray-400 text-center mb-2 mt-8">
-        © {new Date().getFullYear()} Ola Lømo Ellingsen
+        © {new Date().getFullYear()} Skage Larsen
       </p>
     </footer>
   );
