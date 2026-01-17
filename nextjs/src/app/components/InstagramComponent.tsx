@@ -11,7 +11,7 @@ const InstagramEmbed = dynamic(
 export default function InstagramComponent() {
   return (
     <InstagramEmbed
-      className="w-full "
+      className="max-w-3xl w-full"
       url="https://www.instagram.com/skaggi_lrcn/"
     />
   );

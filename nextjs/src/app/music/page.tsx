@@ -6,7 +6,11 @@ import { ALBUMS_QUERY } from "../queries";
 import Button from "../components/Button";
 
 export default async function page() {
-  const albums = await client.fetch<Album[]>(ALBUMS_QUERY);
+  const albums = await client.fetch<Album[]>(
+    ALBUMS_QUERY,
+    {},
+    { next: { revalidate: 60 } }
+  );
 
   return (
     <article className="content">

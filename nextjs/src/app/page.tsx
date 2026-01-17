@@ -22,10 +22,11 @@ export default async function IndexPage() {
           height={400}
         />
       )}
-
-      <PortableTextSection
-        content={{ _type: "richText", content: home.richText }}
-      />
+      <section className="w-full min-h-32">
+        <PortableTextSection
+          content={{ _type: "richText", content: home.richText }}
+        />
+      </section>
 
       <InstagramComponent />
     </article>
