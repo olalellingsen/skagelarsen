@@ -79,3 +79,14 @@ export type Footer = {
     url: string;
   }>;
 };
+
+export type About = {
+  _id: string;
+  richText: Array<{
+    _type: string;
+    children: Array<{
+      _type: string;
+      text: string;
+    }>;
+  }>;
+};

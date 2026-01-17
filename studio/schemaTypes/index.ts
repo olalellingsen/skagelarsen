@@ -4,5 +4,6 @@ import {footerSchema} from './footer'
 import {home} from './home'
 import {projects} from './projects'
 import {venues} from './venues'
+import {about} from './about'
 
-export const schemaTypes = [concerts, projects, home, venues, albums, footerSchema]
+export const schemaTypes = [home, about, concerts, projects, venues, albums, footerSchema]

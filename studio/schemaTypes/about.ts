@@ -1,23 +1,10 @@
 import {defineField, defineType} from 'sanity'
 
-export const home = defineType({
-  name: 'home',
-  title: 'Home Page',
+export const about = defineType({
+  name: 'about',
+  title: 'About Page',
   type: 'document',
   fields: [
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
     defineField({
       name: 'richText',
       title: 'Rich Text',
@@ -33,13 +20,14 @@ export const home = defineType({
             {title: 'Quote', value: 'blockquote'},
           ],
         },
+        {type: 'image'},
       ],
     }),
   ],
   preview: {
     prepare() {
       return {
-        title: 'Home Page',
+        title: 'About Page',
       }
     },
   },

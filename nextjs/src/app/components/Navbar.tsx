@@ -10,6 +10,7 @@ function Navbar() {
   const pathname = usePathname();
   const [menuItems] = useState([
     { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
     { label: "Projects", path: "/projects" },
     { label: "Music", path: "/music" },
     { label: "Concerts", path: "/concerts" },
