@@ -10,7 +10,6 @@ function Navbar() {
   const pathname = usePathname();
   const [menuItems] = useState([
     { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
     { label: "Projects", path: "/projects" },
     { label: "Music", path: "/music" },
     { label: "Concerts", path: "/concerts" },
@@ -35,7 +34,7 @@ function Navbar() {
   return (
     <header className="h-16 sm:h-20 p-2 sm:px-4 flex justify-between w-full">
       <Link href={"/"} className="hover:cursor-pointer">
-        Logo
+        <h1 className="sm:p-2">Skage Larsen</h1>
       </Link>
       <nav>
         <ul

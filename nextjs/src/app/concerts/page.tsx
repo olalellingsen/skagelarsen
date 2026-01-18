@@ -11,7 +11,7 @@ export default async function page() {
   const upcomingConcerts = await client.fetch<Concert[]>(
     UPCOMING_CONCERTS_QUERY,
     {},
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 60 } },
   );
 
   const pastConcerts = await client.fetch<Concert[]>(
@@ -19,7 +19,7 @@ export default async function page() {
     {},
     {
       next: { revalidate: 60 },
-    }
+    },
   );
 
   return (
@@ -41,7 +41,7 @@ export default async function page() {
       )}
 
       <br />
-      <h2>Previous concerts</h2>
+      {pastConcerts.length > 0 && <h2>Previous concerts</h2>}
       {(() => {
         const concertsByYear = pastConcerts.reduce(
           (acc, concert) => {
@@ -50,7 +50,7 @@ export default async function page() {
             acc[year].push(concert);
             return acc;
           },
-          {} as Record<number, Concert[]>
+          {} as Record<number, Concert[]>,
         );
 
         const years = Object.keys(concertsByYear)

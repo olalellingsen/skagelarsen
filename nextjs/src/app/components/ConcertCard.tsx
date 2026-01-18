@@ -11,7 +11,8 @@ export const ConcertCard = ({ concert, upcoming }: ConcertCardProps) => {
   return (
     <li
       className="
-        border-b border-foreground/20 py-4
+        py-4
+
         grid lg:grid-cols-10 lg:items-center
         relative
       "
@@ -24,7 +25,7 @@ export const ConcertCard = ({ concert, upcoming }: ConcertCardProps) => {
         })}
       </div>
 
-      <div className="text-gray-500">
+      <div className="text-gray-400">
         {concert.time ? `${concert.time}` : ""}
       </div>
 
