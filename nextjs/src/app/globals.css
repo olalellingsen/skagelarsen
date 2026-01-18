@@ -11,7 +11,7 @@
   }
 }
 :root {
-  --background: #121212;
+  --background: #3f3f3f;
   --foreground: #ededed;
 }
 
@@ -33,13 +33,13 @@ body {
 }
 
 h1 {
-  @apply text-4xl mb-4 uppercase;
+  @apply text-4xl mb-4;
 }
 
 h2 {
-  @apply text-3xl mb-3 uppercase;
+  @apply text-3xl mb-3;
 }
 
 h3 {
-  @apply text-xl mb-1 uppercase;
+  @apply text-xl mb-1;
 }

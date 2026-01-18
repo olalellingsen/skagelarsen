@@ -32,13 +32,13 @@ function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="h-16 sm:h-20 p-2 sm:px-4 flex justify-between w-full">
-      <Link href={"/"} className="hover:cursor-pointer">
+    <header className="h-16 sm:h-24 p-4 sm:p-8 flex justify-between items-center w-full bg-zinc-800">
+      <Link href={"/"} className="hover:cursor-pointer translate-y-2">
         <h1 className="sm:p-2">Skage Larsen</h1>
       </Link>
       <nav>
         <ul
-          className={`hidden md:flex w-max gap-10 m-4 text-lg hover:text-stone-400
+          className={`hidden md:flex w-max gap-6 m-4 text-lg hover:text-stone-400
           } `}
         >
           {menuItems.map((item) => (
