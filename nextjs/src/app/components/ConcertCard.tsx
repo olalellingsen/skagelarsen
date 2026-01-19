@@ -11,8 +11,10 @@ export const ConcertCard = ({ concert, upcoming }: ConcertCardProps) => {
   return (
     <li
       className="
-        py-4
-
+        my-2
+        p-4
+      bg-white/5
+        rounded-lg
         grid lg:grid-cols-10 lg:items-center
         relative
       "

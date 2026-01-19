@@ -23,7 +23,7 @@ export default function RootLayout({
         className={`${font.className} antialiased flex flex-col min-h-screen`}
       >
         <Navbar />
-        <main className="flex-grow py-10">{children}</main>
+        <main className="flex-grow py-4">{children}</main>
         <Footer />
       </body>
     </html>

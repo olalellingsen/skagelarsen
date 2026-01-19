@@ -32,13 +32,13 @@ function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="h-16 sm:h-24 p-4 sm:p-8 flex justify-between items-center w-full bg-zinc-800">
+    <header className="h-16 sm:h-24 p-2 sm:p-8 flex justify-between items-center w-full">
       <Link href={"/"} className="hover:cursor-pointer translate-y-2">
         <h1 className="sm:p-2">Skage Larsen</h1>
       </Link>
       <nav>
         <ul
-          className={`hidden md:flex w-max gap-6 m-4 text-lg hover:text-stone-400
+          className={`hidden sm:flex w-max gap-6 text-lg hover:text-stone-400
           } `}
         >
           {menuItems.map((item) => (
@@ -53,11 +53,11 @@ function Navbar() {
             </Link>
           ))}
         </ul>
-        <div className="md:hidden w-full flex justify-end" onClick={openMenu}>
+        <div className="sm:hidden w-full flex justify-end" onClick={openMenu}>
           <Menu size={50} strokeWidth={1} />
         </div>
         {isOpen && (
-          <div className="fixed md:hidden top-0 left-0 w-screen h-screen bg-background z-50">
+          <div className="fixed sm:hidden top-0 left-0 w-screen h-screen bg-background z-50">
             {/* logo and cross */}
             <div className="h-20 sm:h-24 p-2 flex justify-between w-full">
               <div className="w-full flex justify-end">

@@ -11,7 +11,7 @@
   }
 }
 :root {
-  --background: #3f3f3f;
+  --background: #171717;
   --foreground: #ededed;
 }
 
@@ -29,7 +29,7 @@ body {
 }
 
 .content {
-  @apply max-w-7xl mx-auto px-2 sm:px-4;
+  @apply max-w-7xl mx-auto px-2 sm:px-10;
 }
 
 h1 {

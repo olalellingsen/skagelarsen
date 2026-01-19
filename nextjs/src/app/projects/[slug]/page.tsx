@@ -14,7 +14,7 @@ import PortableTextSection from "@/app/components/PortableTextSection";
 
 export async function generateStaticParams() {
   const projects = await client.fetch<{ slug: string }[]>(
-    `*[_type == "project"]{ "slug": slug.current }`
+    `*[_type == "project"]{ "slug": slug.current }`,
   );
 
   return projects.map((project) => ({
@@ -34,7 +34,7 @@ export default async function page({
   }
   const upcomingConcerts = await client.fetch<Concert[]>(
     PROJECT_UPCOMING_CONCERTS_QUERY,
-    { projectId: project._id }
+    { projectId: project._id },
   );
 
   const projectAlbums = await client.fetch<Album[]>(PROJECT_ALBUMS_QUERY, {
@@ -83,31 +83,23 @@ export default async function page({
             <h2>Albums</h2>
             <ul className="space-y-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
               {projectAlbums.map((album) => (
-                <li key={album._id} className="group">
-                  <Link
-                    href={album.streamingLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p className="font-bold sm:text-lg">{album.title}</p>
-                    {album.coverArt && (
-                      <Image
-                        src={urlForImage(album.coverArt).url()}
-                        alt={album.title}
-                        width={400}
-                        height={400}
-                        className="group-hover:opacity-80 transition"
-                      />
-                    )}
-                  </Link>
+                <li key={album._id} className="space-y-2">
+                  <p className="font-bold sm:text-lg">{album.title}</p>
+                  {album.coverArt && (
+                    <Image
+                      src={urlForImage(album.coverArt).url()}
+                      alt={album.title}
+                      width={400}
+                      height={400}
+                    />
+                  )}
+                  {album.streamingLink && (
+                    <Button href={album.streamingLink}>Listen Here</Button>
+                  )}
                 </li>
               ))}
             </ul>
           </section>
-        )}
-
-        {project.spotifyLink && (
-          <Button href={project.spotifyLink || "#"}>Listen on Spotify</Button>
         )}
       </article>
     </main>

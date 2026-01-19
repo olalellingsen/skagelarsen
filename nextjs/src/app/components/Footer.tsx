@@ -35,7 +35,7 @@ export default async function Footer() {
   }`);
 
   return (
-    <footer className="content w-full lg:mt-12">
+    <footer className="w-full px-2 sm:px-8 lg:mt-12">
       <div className="grid gap-4 md:flex justify-between">
         <div className="*:block">
           <h3>Contact</h3>

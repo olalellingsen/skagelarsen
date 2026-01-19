@@ -15,6 +15,7 @@ export const projects = defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      description: 'A unique identifier for the project used in URLs.',
       options: {source: 'title', maxLength: 96},
       validation: (rule) => rule.required(),
     }),
@@ -35,12 +36,6 @@ export const projects = defineType({
       name: 'body',
       type: 'array',
       of: [{type: 'block'}],
-    }),
-    defineField({
-      name: 'spotifyLink',
-      title: 'Spotify Link',
-      type: 'url',
-      validation: (rule) => rule.uri({allowRelative: true}),
     }),
   ],
   preview: {

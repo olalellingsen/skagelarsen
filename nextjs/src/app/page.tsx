@@ -9,7 +9,7 @@ export default async function IndexPage() {
   const home = await client.fetch<HomePage>(
     HOME_QUERY,
     {},
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 60 } },
   );
 
   return (
@@ -18,11 +18,12 @@ export default async function IndexPage() {
         <Image
           src={urlForImage(home?.image).url()}
           alt="Home Image"
-          width={600}
-          height={400}
+          width={500}
+          height={800}
+          className="w-full max-w-3xl"
         />
       )}
-      <section className="w-full min-h-32">
+      <section className="w-full max-w-3xl py-4">
         <PortableTextSection
           content={{ _type: "richText", content: home.richText }}
         />

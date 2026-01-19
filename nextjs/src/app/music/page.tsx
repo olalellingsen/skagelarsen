@@ -9,7 +9,7 @@ export default async function page() {
   const albums = await client.fetch<Album[]>(
     ALBUMS_QUERY,
     {},
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 60 } },
   );
 
   return (
@@ -31,7 +31,7 @@ export default async function page() {
                 className="w-full"
               />
             )}
-            <div className="p-4">
+            <div className="p-4 bg-white/5 space-y-2">
               <h3>{album.title}</h3>
               <p>
                 {album.artist ? (
@@ -44,8 +44,6 @@ export default async function page() {
                 ) : (
                   album.otherArtist
                 )}
-              </p>
-              <p>
                 Released:{" "}
                 {new Date(album.releaseDate).toLocaleDateString("en-GB", {
                   day: "2-digit",
@@ -53,7 +51,7 @@ export default async function page() {
                   year: "numeric",
                 })}
               </p>
-              <Button href={album.streamingLink || "#"} variant="link">
+              <Button href={album.streamingLink || "#"} variant="default">
                 Listen Here
               </Button>
             </div>
