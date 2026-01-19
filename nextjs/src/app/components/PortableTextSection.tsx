@@ -66,6 +66,7 @@ const stylings: PortableTextComponents = {
       <Button
         href={value?.href || "#"}
         variant="link"
+        external
         className="text-foreground inline-flex"
       >
         {children}

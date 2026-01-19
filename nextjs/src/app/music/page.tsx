@@ -51,7 +51,11 @@ export default async function page() {
                   year: "numeric",
                 })}
               </p>
-              <Button href={album.streamingLink || "#"} variant="default">
+              <Button
+                href={album.streamingLink || "#"}
+                variant="default"
+                external
+              >
                 Listen Here
               </Button>
             </div>

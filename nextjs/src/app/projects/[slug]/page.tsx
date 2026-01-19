@@ -42,65 +42,65 @@ export default async function page({
 
   return (
     <main className="content">
-      {project.image && (
-        <Image
-          src={urlForImage(project.image).url()}
-          alt={project.title}
-          width={1200}
-          height={600}
-          className="w-full aspect-square md:aspect-5/2 object-cover"
-        />
-      )}
-
-      <article className="space-y-12 py-2">
-        <h1>{project.title}</h1>
-
+      <section className="grid lg:grid-cols-2 gap-4 lg:gap-8 mb-8 lg:mb-16">
+        {project.image && (
+          <Image
+            src={urlForImage(project.image).url()}
+            alt={project.title}
+            width={1200}
+            height={600}
+            className="aspect-square object-cover"
+          />
+        )}
         {project.body && (
           <section>
+            <h1>{project.title}</h1>
             <PortableTextSection
               content={{ _type: "richText", content: project.body }}
             />
           </section>
         )}
-        {upcomingConcerts.length > 0 && (
-          <section>
-            <h2>Upcoming concerts</h2>
-            <ul>
-              {upcomingConcerts.map((concert) => (
-                <ConcertCard
-                  key={concert._id}
-                  concert={concert}
-                  upcoming={true}
-                />
-              ))}
-            </ul>
-          </section>
-        )}
+      </section>
+      {upcomingConcerts.length > 0 && (
+        <section>
+          <h2>Upcoming concerts</h2>
+          <ul>
+            {upcomingConcerts.map((concert) => (
+              <ConcertCard
+                key={concert._id}
+                concert={concert}
+                upcoming={true}
+              />
+            ))}
+          </ul>
+        </section>
+      )}
 
-        {projectAlbums.length > 0 && (
-          <section>
-            <h2>Albums</h2>
-            <ul className="space-y-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
-              {projectAlbums.map((album) => (
-                <li key={album._id} className="space-y-2">
-                  <p className="font-bold sm:text-lg">{album.title}</p>
-                  {album.coverArt && (
-                    <Image
-                      src={urlForImage(album.coverArt).url()}
-                      alt={album.title}
-                      width={400}
-                      height={400}
-                    />
-                  )}
-                  {album.streamingLink && (
-                    <Button href={album.streamingLink}>Listen Here</Button>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-      </article>
+      {projectAlbums.length > 0 && (
+        <section>
+          <h2>Albums</h2>
+          <ul className="space-y-4 grid grid-cols-2 gap-2 md:grid-cols-3">
+            {projectAlbums.map((album) => (
+              <li key={album._id} className="space-y-2">
+                <p className="font-bold sm:text-lg">{album.title}</p>
+                {album.coverArt && (
+                  <Image
+                    src={urlForImage(album.coverArt).url()}
+                    alt={album.title}
+                    width={400}
+                    height={400}
+                  />
+                )}
+                {album.streamingLink && (
+                  <Button external href={album.streamingLink}>
+                    Listen Here
+                  </Button>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </main>
   );
 }
