@@ -82,7 +82,7 @@ export default async function page({
           <ul className="space-y-4 grid grid-cols-2 gap-2 md:grid-cols-3">
             {projectAlbums.map((album) => (
               <li key={album._id} className="space-y-2">
-                <p className="font-bold sm:text-lg">{album.title}</p>
+                <h3>{album.title}</h3>
                 {album.coverArt && (
                   <Image
                     src={urlForImage(album.coverArt).url()}

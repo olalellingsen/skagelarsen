@@ -18,7 +18,7 @@ export default async function IndexPage() {
         <Image
           src={urlForImage(home?.image).url()}
           alt="Home Image"
-          width={500}
+          width={1200}
           height={800}
           className="w-full max-w-3xl"
         />
