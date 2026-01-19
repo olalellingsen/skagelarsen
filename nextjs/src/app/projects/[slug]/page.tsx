@@ -9,7 +9,6 @@ import Image from "next/image";
 import { Album, Concert, Project } from "../../types";
 import Button from "../../components/Button";
 import { ConcertCard } from "@/app/components/ConcertCard";
-import Link from "next/link";
 import PortableTextSection from "@/app/components/PortableTextSection";
 
 export async function generateStaticParams() {
