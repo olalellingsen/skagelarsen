@@ -33,8 +33,9 @@ function Navbar() {
 
   return (
     <header className="h-16 sm:h-24 p-2 sm:p-8 flex justify-between items-center w-full">
-      <Link href={"/"} className="hover:cursor-pointer translate-y-2">
-        <h1 className="sm:p-2">Skage Larsen</h1>
+      <Link href={"/"} className="hover:cursor-pointer pt-6">
+        <h1 className="">Skage Larsen</h1>
+        <p className="-translate-y-5 text-xl">Musician</p>
       </Link>
       <nav>
         <ul
