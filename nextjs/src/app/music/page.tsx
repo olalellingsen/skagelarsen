@@ -33,7 +33,7 @@ export default async function page() {
             )}
             <div className="p-4 bg-white/5 space-y-2">
               <h3>{album.title}</h3>
-              <p>
+              <div>
                 {album.artist ? (
                   <Button
                     href={`/projects/${album.artist.slug.current}`}
@@ -42,15 +42,17 @@ export default async function page() {
                     {album.artist.title}
                   </Button>
                 ) : (
-                  album.otherArtist
+                  <p>{album.otherArtist}</p>
                 )}
-                Released:{" "}
-                {new Date(album.releaseDate).toLocaleDateString("en-GB", {
-                  day: "2-digit",
-                  month: "short",
-                  year: "numeric",
-                })}
-              </p>
+                <p>
+                  Released:{" "}
+                  {new Date(album.releaseDate).toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </p>
+              </div>
               <Button
                 href={album.streamingLink || "#"}
                 variant="default"
