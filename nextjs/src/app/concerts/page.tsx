@@ -1,26 +1,30 @@
 import React from "react";
 import { client } from "@/sanity/client";
-import {
-  PREVIOUS_CONCERTS_QUERY,
-  UPCOMING_CONCERTS_QUERY,
-} from "@/app/queries";
+import { CONCERTS_QUERY } from "@/app/queries";
 import { Concert } from "../types";
 import { ConcertCard } from "../components/ConcertCard";
 
 export default async function page() {
-  const upcomingConcerts = await client.fetch<Concert[]>(
-    UPCOMING_CONCERTS_QUERY,
+  const concerts = await client.fetch<Concert[]>(
+    CONCERTS_QUERY,
     {},
     { next: { revalidate: 60 } },
   );
 
-  const pastConcerts = await client.fetch<Concert[]>(
-    PREVIOUS_CONCERTS_QUERY,
-    {},
-    {
-      next: { revalidate: 60 },
-    },
-  );
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const upcomingConcerts = concerts.filter((concert) => {
+    const concertDate = new Date(concert.date);
+    concertDate.setHours(0, 0, 0, 0);
+    return concertDate >= today;
+  });
+
+  const previousConcerts = concerts.filter((concert) => {
+    const concertDate = new Date(concert.date);
+    concertDate.setHours(0, 0, 0, 0);
+    return concertDate < today;
+  });
 
   return (
     <main className="content">
@@ -41,9 +45,9 @@ export default async function page() {
       )}
 
       <br />
-      {pastConcerts.length > 0 && <h2>Previous concerts</h2>}
+      {previousConcerts.length > 0 && <h2>Previous concerts</h2>}
       {(() => {
-        const concertsByYear = pastConcerts.reduce(
+        const concertsByYear = previousConcerts.reduce(
           (acc, concert) => {
             const year = new Date(concert.date).getFullYear();
             if (!acc[year]) acc[year] = [];
