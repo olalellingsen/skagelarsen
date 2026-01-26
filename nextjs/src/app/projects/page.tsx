@@ -7,11 +7,7 @@ import { urlFor } from "@/sanity/image";
 import Link from "next/link";
 
 export default async function page() {
-  const projects = await client.fetch<Project[]>(
-    PROJECTS_QUERY,
-    {},
-    { next: { revalidate: 60 } },
-  );
+  const projects = await client.fetch<Project[]>(PROJECTS_QUERY);
 
   return (
     <article className="content">

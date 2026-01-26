@@ -6,11 +6,7 @@ import PortableTextSection from "./components/PortableTextSection";
 import InstagramComponent from "./components/InstagramComponent";
 
 export default async function IndexPage() {
-  const home = await client.fetch<HomePage>(
-    HOME_QUERY,
-    {},
-    { next: { revalidate: 60 } },
-  );
+  const home = await client.fetch<HomePage>(HOME_QUERY);
 
   return (
     <article className="content flex flex-col items-center">

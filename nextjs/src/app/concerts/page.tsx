@@ -5,11 +5,7 @@ import { Concert } from "../types";
 import { ConcertCard } from "../components/ConcertCard";
 
 export default async function page() {
-  const concerts = await client.fetch<Concert[]>(
-    CONCERTS_QUERY,
-    {},
-    { next: { revalidate: 60 } },
-  );
+  const concerts = await client.fetch<Concert[]>(CONCERTS_QUERY);
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);

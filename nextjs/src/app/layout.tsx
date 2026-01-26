@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   title: "Skage Larsen",
 };
 
+export const revalidate = 60;
+
 export default function RootLayout({
   children,
 }: Readonly<{
